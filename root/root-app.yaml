@@ -2,16 +2,16 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: root-app
-  namespace: argocd
+  namespace: argoapps
 spec:
   project: default
   source:
     repoURL: https://github.com/pribnoda/argocd.git
     targetRevision: HEAD
-    path: apps
+    path: ../apps
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: argoapps
   syncPolicy:
     automated:
       prune: true
